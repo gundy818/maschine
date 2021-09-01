@@ -50,16 +50,50 @@ describe Machine::Bayes::BayesClasifier do
   pending "#classifications" do
   end
 
-  pending "#classify_with_score" do
-  end
-
-  pending "#classify" do
+  describe "#classify_with_score" do
     categories = [
       "AAA",
       "BBB"
       ]
 
     classifier = Machine::Bayes::BayesClasifier.new(categories)
+    classifier.train("AAA", "cat")
+    classifier.train("AAA", "cat beaver")
+    classifier.train("BBB", "dog")
+
+    it "recognises a cat" do
+      result = classifier.classify_with_score("a cat")
+      result.has_key?("AAA").should be_true
+			result["AAA"].should be > 4.0
+    end
+
+    it "recognises a dog" do
+      result = classifier.classify_with_score("a dog")
+      result.has_key?("BBB").should be_true
+			result["BBB"].should be > 3.0
+    end
+  end
+
+  describe "#classify" do
+    categories = [
+      "AAA",
+      "BBB"
+      ]
+
+    classifier = Machine::Bayes::BayesClasifier.new(categories)
+    classifier.train("AAA", "cat")
+    classifier.train("AAA", "cat beaver")
+    classifier.train("BBB", "dog")
+
+    it "recognises a cat" do
+      result = classifier.classify("a cat")
+      result.should eq "AAA"
+    end
+
+    it "recognises a dog" do
+      result = classifier.classify("a dog")
+      result.should eq "BBB"
+    end
   end
 
   describe "#count_words_occurence" do
