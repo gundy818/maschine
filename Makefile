@@ -15,7 +15,7 @@ all:
 
 clean:
 
-check:	check_spec
+check:	lint check_spec
 
 check_spec:
 	$(CRYSTAL) $(CRYSTALFLAGS) spec
