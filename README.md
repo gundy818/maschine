@@ -1,7 +1,9 @@
 # machine
 
 Simple machine learning algorithm.
-Status : working on decision tree.
+
+This was originally cloned from https://github.com/mathieulaporte/machine, so most of the work is from Mathieu Laporte. Thank you Mathieu.
+
 
 ## Installation
 
@@ -10,16 +12,17 @@ Add this to your application's `shard.yml`:
 
 ```yaml
 dependencies:
-  machine:
-    github: mathieulaporte/machine
+  maschine:
+    github: gundy818/maschine
 ```
+
 
 ## Usage
 
 ```crystal
-require "machine"
+require "maschine"
 
-classifier = Machine::Bayes::BayesClasifier.new(["cat", "dog"])
+classifier = Maschine::Bayes::BayesClassifier.new(["cat", "dog"])
 
 classifier.train("dog", "dogs are awesome")
 classifier.train("dog", "The domestic dog Canis lupus familiaris or Canis familiaris is a member of genus Canis canines that forms part of the wolf-like canids and is the most widely abundant carnivore.")
@@ -42,9 +45,11 @@ puts classifier.classify("a kind of felid")
 # cat
 ```
 
+
 ## Development
 
 TODO: Write development instructions here
+
 
 ## Contributing
 
@@ -54,6 +59,10 @@ TODO: Write development instructions here
 4. Push to the branch (git push origin my-new-feature)
 5. Create a new Pull Request
 
+
 ## Contributors
 
 - [[mathieulaporte]](https://github.com/[mathieulaporte]) Mathieu Laporte - creator, maintainer
+- [[gundy818]](https://github.com/[gundy818]) Cloner!
+
+

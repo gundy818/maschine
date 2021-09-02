@@ -1,6 +1,6 @@
 require "./spec_helper"
 
-describe Machine do
+describe Maschine do
 
   pending "works" do
     false.should eq(true)
