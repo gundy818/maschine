@@ -1,6 +1,6 @@
 require "./spec_helper"
 
-describe Machine::Bayes::BayesClasifier do
+describe Maschine::Bayes::BayesClassifier do
 
   describe "initialisation" do
     categories = [
@@ -8,7 +8,7 @@ describe Machine::Bayes::BayesClasifier do
       "cat 2"
       ]
 
-    classifier = Machine::Bayes::BayesClasifier.new(categories)
+    classifier = Maschine::Bayes::BayesClassifier.new(categories)
     classifier.categories.size.should eq categories.size
 
 
@@ -32,7 +32,7 @@ describe Machine::Bayes::BayesClasifier do
       ]
 
     it "trains a category" do
-      classifier = Machine::Bayes::BayesClasifier.new(categories)
+      classifier = Maschine::Bayes::BayesClassifier.new(categories)
       classifier.train("AAA", "cat")
       classifier.category_counts["AAA"].should eq 1
 
@@ -56,7 +56,7 @@ describe Machine::Bayes::BayesClasifier do
       "BBB"
       ]
 
-    classifier = Machine::Bayes::BayesClasifier.new(categories)
+    classifier = Maschine::Bayes::BayesClassifier.new(categories)
     classifier.train("AAA", "cat")
     classifier.train("AAA", "cat beaver")
     classifier.train("BBB", "dog")
@@ -80,7 +80,7 @@ describe Machine::Bayes::BayesClasifier do
       "BBB"
       ]
 
-    classifier = Machine::Bayes::BayesClasifier.new(categories)
+    classifier = Maschine::Bayes::BayesClassifier.new(categories)
     classifier.train("AAA", "cat")
     classifier.train("AAA", "cat beaver")
     classifier.train("BBB", "dog")
@@ -97,7 +97,7 @@ describe Machine::Bayes::BayesClasifier do
   end
 
   describe "#count_words_occurence" do
-    classifier = Machine::Bayes::BayesClasifier.new([] of String)
+    classifier = Maschine::Bayes::BayesClassifier.new([] of String)
 
     it "handles empty string" do
       occ = classifier.count_words_occurence("")
