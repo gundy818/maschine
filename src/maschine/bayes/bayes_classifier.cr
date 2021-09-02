@@ -1,4 +1,4 @@
-module Machine
+module Maschine
   module Bayes
     class Category
       def initialize
@@ -19,7 +19,7 @@ module Machine
       end
     end
 
-    class BayesClasifier
+    class BayesClassifier
       def initialize(@categories_names : Array(String))
         @categories = {} of String => Category
         @category_counts = Hash(String, Int32).new(0)
@@ -79,3 +79,4 @@ module Machine
     end
   end
 end
+
