@@ -1,8 +1,4 @@
 
-SHELL	:= /bin/sh
-PACKAGE	:= naschine
-VERSION	:= $(shell date +%Y%m%d)
-
 AMEBA	:= bin/ameba
 AMEBAFLAGS	:= --except Style/RedundantReturn,Layout/TrailingBlankLines
 
@@ -28,5 +24,5 @@ doc:	$(DOCS)
 TAGS:
 	ctags -R .
 
-.PHONY:	all clean doc lint
+.PHONY:	all check_spec clean doc lint
 
