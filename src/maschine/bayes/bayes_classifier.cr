@@ -62,7 +62,7 @@ module Maschine
       end
 
       def classify_with_score(text : String)
-        classifications(text).map { |k, v| {k => -v} }.sort_by { |a| a.values[0] }[0]
+        classifications(text).map { |k, v| {k => -v} }.sort_by! { |a| a.values[0] }[0]
       end
 
       def classify(text : String)
